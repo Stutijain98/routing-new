@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import {Router,ActivatedRoute} from '@angular/router';
-// import { StudentList} from '../student.array';
+ import { StudentList} from '../student.array';
+ import{FormBuilder,FormGroup,Validators} from '@angular/forms';
 @Component({
   selector: 'app-EditStudent',
   templateUrl: './EditStudent.html'
@@ -8,19 +9,41 @@ import {Router,ActivatedRoute} from '@angular/router';
 
 
 export class EditStudentComponent implements OnInit {
-  // student=StudentList;
-id=''
+  
+  EditStudentForm:FormGroup;
+
+  id;
 
      
 
-constructor(private router:Router ,private ActRou:ActivatedRoute){
+constructor(private router:Router ,private ActivatedRoute:ActivatedRoute, private formBuilder:FormBuilder, private Router:Router) { }
  
-}
+
   ngOnInit(){
-    //  console.log(StudentList)
-     this.id=this.ActRou.snapshot.paramMap.get("id");
-    //  this.student.filter("Id":this.id);
-    //  console.log(this.student[1].Id);
+   
+    this.id = this.ActivatedRoute.snapshot.paramMap.get("userId");
+    this.EditStudentForm = this.formBuilder.group({
+      Id:[JSON.parse(localStorage.getItem(this.id)).Id,Validators.required],
+      Name:[JSON.parse(localStorage.getItem(this.id)).Name,Validators.required],
+      Department:[JSON.parse(localStorage.getItem(this.id)).Department,Validators.required],
+    });
+  }
+ continue(){
+   
+      let data={  Id:this. EditStudentForm.value.id};      
+      localStorage.removeItem(this.id);
+      localStorage.setItem(this.id,JSON.stringify(data));       
+      this.router.navigateByUrl('/Studentlist');
   }
 
+delete()
+{
+      let data={  Id:this.EditStudentForm.value.Id };  
+      localStorage.removeItem(this.id);    
+      this.router.navigateByUrl('/Studentlist');
 }
+
+   
+     
+  }
+ 
