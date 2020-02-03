@@ -1,0 +1,71 @@
+<div class ="container">
+  
+
+<h1>Student List</h1>
+<div class="border-rounded"></div>
+ <form class="form-inline p-2 ml-md-auto">
+      <label class="mr-2">Student Department</label>
+           <select><option>All</option>
+                   <option>Deep studies</option>
+                   <option>Engineering</option>
+                   <option>Fashion Design</option>
+           </select></form>
+  <form>         
+  <input type="text"></form>
+
+
+
+<div class="table-responsive">
+  <table class="table mb-0 fs-14 table_md">
+    <thead>
+       <tr>
+           <th scope="col" style="min-width:110px;">ID</th>
+           <th scope="col" style="min-width:140px;">Name</th>
+           <th scope="col" style="min-width:130px;">Credits</th>
+           <th scope="col" style="min-width:140px;">Departmrnt</th>
+       </tr>
+    </thead>
+    
+  
+    
+     < <tbody *ngFor="let Students of student">
+      <tr>
+         <td>{{Students.Id}}</td>
+         <td>{{Students.Name}}</td>
+         <td>{{Students.Department}}</td>
+        <td> <a [routerLink]="['/AddStudent',Students]">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- >
+        <tr>
+                            <td>1</td>
+                            <td>Stuti</td>
+                            <td>5</td>
+                            <td>BCA[CC]</td>
+        </tr>
+        <tr>
+                            
+                            <td>2</td>
+                            <td>Leena</td>
+                            <td>5</td>
+                            <td>IT</td>
+        </tr>
+    </tbody>
+  </table>
+</div> -->
+<div>
+    <label>Show
+           <select> <option>5</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+           </select>
+           Entries</label>
+<div class="my-3 my-lg-0 fs-14">Showing 1 to 5 of 57 entries</div>
+<li class="page-item active">1</li>
+<li class="page-item">2</li>
+<li class="page-item">3</li>
+</div>

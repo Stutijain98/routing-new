@@ -1,0 +1,57 @@
+<div class ="container">
+  
+
+<h1>Student List</h1>
+<div class="border-rounded"></div>
+ <form class="form-inline p-2 ml-md-auto">
+      <label class="mr-2">Student Department</label>
+           <select><option>All</option>
+                   <option>Deep studies</option>
+                   <option>Engineering</option>
+                   <option>Fashion Design</option>
+           </select></form>
+  <form>         
+  <input type="text"></form>
+
+
+
+<div class="table-responsive">
+  <table class="table mb-0 fs-14 table_md">
+    
+       <tr>
+           <th scope="col" style="min-width:110px;">ID</th>
+           <th scope="col" style="min-width:140px;">Name</th>           
+           <th scope="col" style="min-width:140px;">Departmrnt</th>
+       </tr>
+    
+     <tr *ngFor="let i of student">
+       <td>{{i.Id}}</td>
+       <td>{{i.Name}}</td>
+       <td>{{i.Department}}</td>
+       <td><a routerLink="/AddStudent">Edit</a></td>
+     </tr>
+    
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+    <label>Show
+           <select> <option>5</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+           </select>
+           Entries</label>
+<div class="my-3 my-lg-0 fs-14">Showing 1 to 5 of 57 entries</div>
+<li class="page-item active">1</li>
+<li class="page-item">2</li>
+<li class="page-item">3</li>
+</div>

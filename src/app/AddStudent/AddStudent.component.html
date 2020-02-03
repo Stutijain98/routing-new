@@ -1,0 +1,16 @@
+<h1>Create Student</h1>
+<form [formGroup]="userFormGroup"> 
+  <div>
+     <label>Id</label>
+     <input type="text"class="form-control" formControlName="Id">
+  </div>
+  <div>
+     <label>Name</label>
+     <input type="text"class="form-control" formControlName="Name">
+  </div>
+  <div>
+     <label>Department</label>
+     <input type="text"class="form-control" formControlName="Department">
+  </div>
+     
+  <button (click)="AddStudent()" class="btn btn-primary">Create Student</button>
